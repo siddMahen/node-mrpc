@@ -9,22 +9,29 @@
   ],
   "version": "0.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "node test/basic.js"
+  "bugs": {
+    "url": "https://github.com/siddMahen/node-mrpc/issues",
+    "email": "siddharth_mahen@me.com"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:siddMahen/node-mrpc.git"
+  },
+  "scripts": {
+    "test": "node test/basic.js"
+  },
+  "directories": {
+    "test": "test",
+    "lib": "lib"
   },
   "dependencies": {
     "msgpack3": "~0.1.1",
     "eventemitter2": "~0.4.9",
     "traverse": "~0.6.3"
   },
-  "directories": {
-    "test": "test",
-    "lib": "lib"
-  },
+  "devDependencies": {},
   "license": "MIT",
-  "devDependencies": {}
+  "engines": {
+    "node": ">=0.7.11"
+  }
 }
