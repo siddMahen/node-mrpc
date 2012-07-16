@@ -1,0 +1,30 @@
+{
+  "author": "Siddharth Mahendraker <siddharth_mahen@me.com>",
+  "name": "mrpc",
+  "description": "Simple, fast and efficient RPC.",
+  "keywords": [
+    "efficient",
+    "fast",
+    "rpc"
+  ],
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/basic.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:siddMahen/node-mrpc.git"
+  },
+  "dependencies": {
+    "msgpack3": "~0.1.1",
+    "eventemitter2": "~0.4.9",
+    "traverse": "~0.6.3"
+  },
+  "directories": {
+    "test": "test",
+    "lib": "lib"
+  },
+  "license": "MIT",
+  "devDependencies": {}
+}
