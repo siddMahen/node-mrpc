@@ -1,7 +1,48 @@
-# mrpc - Simple node.js RPC
+# mrpc [![Build Status](http://bit.ly/SSaz3I)](http://bit.ly/MUDnnQ)
 
-`mrpc` is designed to be fast, efficient and dead easy to understand and use.
-For a complete overview of what `mrpc` does, see the [SPEC.md]().
+`mrpc` is an asynchronous RPC system designed with performance in mind. It is
+fast, efficient and dead easy to understand and use.
+
+For a complete overview of what `mrpc` does under the hood, see the
+[`SPEC.md`](https://github.com/siddMahen/node-mrpc/blob/master/SPEC.md).
+
+## Examples
+
+For example, starting the following server:
+
+```js
+var mrpc = require("mrpc");
+
+var server = mrpc({
+    transform: function(s, cb){
+        cb(s.replace(/[aeiou]{2,}/, 'oo').toUpperCase());
+    }
+});
+
+server.listen(5004);
+```
+
+And the following client:
+
+```js
+var mrpc = require("mrpc");
+
+var m = mrpc.connect(5004, function(remote){
+    remote.transform("beep", function(s){
+        console.log("beep => " + s);
+        m.end();
+    });
+});
+```
+
+Outputs:
+
+```
+$ node beep-server.js &
+[1] 12163
+$ node beep-client.js
+beep => BOOP
+```
 
 ## Installation
 
@@ -13,7 +54,8 @@ $ npm install mrpc
 
 ## Documentation
 
-See the inline documentation as well as the examples in the [examples]()
+See the inline documentation as well as the examples in the
+[`examples`](https://github.com/siddMahen/node-mrpc/blob/master/examples)
 folder.
 
 ## License

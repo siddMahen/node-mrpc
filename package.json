@@ -18,7 +18,7 @@
     "url": "git@github.com:siddMahen/node-mrpc.git"
   },
   "scripts": {
-    "test": "node test/basic.js"
+    "test": "tap ./test"
   },
   "directories": {
     "test": "test",
@@ -29,7 +29,9 @@
     "eventemitter2": "~0.4.9",
     "traverse": "~0.6.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tap": "~0.2.5"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=0.7.11"

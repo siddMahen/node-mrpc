@@ -1,16 +1,21 @@
-var mrpc = require("../");
+var test = require("tap").test,
+    mrpc = require("../");
 
-var m = mrpc({
-    test: function(){
-        console.log("Passed");
-        process.exit(0)
-    }
-});
+test("basic", function(t){
+    t.plan(1);
 
-m.on("ready", function(){
-    mrpc.connect(8000, function(remote){
-        remote.test();
+    var m = mrpc({
+        test: function(obj){
+            t.equal(obj.foo, "bar");
+
+            m.end();
+            mm.end();
+
+            t.end();
+        }
+    }).listen(1337);
+
+    var mm = mrpc.connect(1337, function(remote){
+        remote.test({ foo: "bar" });
     });
 });
-
-m.listen(8000);
