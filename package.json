@@ -7,7 +7,7 @@
     "fast",
     "rpc"
   ],
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "bugs": {
     "url": "https://github.com/siddMahen/node-mrpc/issues",
