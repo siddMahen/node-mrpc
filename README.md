@@ -1,4 +1,4 @@
-# mrpc [![Build Status](http://bit.ly/SSaz3I)](http://bit.ly/MUDnnQ)
+# mrpc [![Build Status](https://secure.travis-ci.org/siddMahen/node-mrpc.png?branch=master)](http://travis-ci.org/siddMahen/node-mrpc)
 
 `mrpc` is an asynchronous RPC system designed with performance in mind. It is
 fast, efficient and dead easy to understand and use.

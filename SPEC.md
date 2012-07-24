@@ -19,16 +19,16 @@ which will in turn send the data back to the client.
 
 2. The server will send a map of the following form through the callback:
 
-```js
-{
-  "foo": 1234,
-  "bar": 6789,
-  "baz": 7514
-}
-```
+    ```js
+    {
+      "foo": 1234,
+      "bar": 6789,
+      "baz": 7514
+    }
+    ```
 
-Where each entry represents a function and it's associated unique
-identification number.
+    Where each entry represents a function and it's associated unique
+    identification number.
 
 3. The client will receive the list and create a shim for each function.
 The shim will notify the server once the function has been called on the
@@ -41,15 +41,15 @@ map).
 client is free to call any of the server's remote methods, by sending it
 function execution requests of the form:
 
-```js
-[
-  port, // Sender's port
-  host, // Sender's host
-  id/method,
-  arguments, // Arguments stripped of functions
-  callbacks // Map of function ids and their respective locations in the args
-]
-```
+    ```js
+    [
+      port, // Sender's port
+      host, // Sender's host
+      id/method,
+      arguments, // Arguments stripped of functions
+      callbacks // Map of function ids and their respective locations in the args
+    ]
+    ```
 
 5. The server will receive the packed arguments and proceed to execute the
 function specified. The arguments array will be filled in with the appropriate
