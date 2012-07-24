@@ -3,14 +3,15 @@ var test = require('tap').test,
 
 test('unicode', function(t){
     t.plan(1);
+    var port = Math.floor(Math.random() * 40000 + 10000);
 
     var m = mrpc({
         unicode: function(cb){
             cb("☔☔☔☁☼☁❄");
         }
-    }).listen(1337);
+    }).listen(port);
 
-    var mm = mrpc.connect(1337, function(remote){
+    var mm = mrpc.connect(port, function(remote){
         remote.unicode(function(str){
             t.equal(str, "☔☔☔☁☼☁❄");
 

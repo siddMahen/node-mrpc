@@ -3,6 +3,7 @@ var test = require("tap").test,
 
 test("circular", function(t){
     t.plan(2);
+    var port = Math.floor(Math.random() * 40000 + 10000);
 
     var o = {
         name: "Jeff",
@@ -21,9 +22,9 @@ test("circular", function(t){
 
             t.end();
         }
-    }).listen(1337);
+    }).listen(port);
 
-    var mm = mrpc.connect(1337, function(remote){
+    var mm = mrpc.connect(port, function(remote){
         remote.circular(o);
     });
 });

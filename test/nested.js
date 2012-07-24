@@ -2,6 +2,8 @@ var test = require("tap").test,
     mrpc = require("../");
 
 test("nested", function(t){
+    var port = Math.floor(Math.random() * 40000 + 10000);
+
     var m = mrpc({
         repeat: function(count, fn, cb){
             for(var j = 0; j < count; j++){
@@ -10,9 +12,9 @@ test("nested", function(t){
 
             cb(j);
         }
-    }).listen(1337);
+    }).listen(port);
 
-    var mm = mrpc.connect(1337, function(remote){
+    var mm = mrpc.connect(port, function(remote){
         var i = 0,
             inc = function(){ i++ };
 

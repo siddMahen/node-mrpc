@@ -3,6 +3,7 @@ var test = require("tap").test,
 
 test("basic", function(t){
     t.plan(1);
+    var port = Math.floor(Math.random() * 40000 + 10000);
 
     var m = mrpc({
         test: function(obj){
@@ -13,9 +14,9 @@ test("basic", function(t){
 
             t.end();
         }
-    }).listen(1337);
+    }).listen(port);
 
-    var mm = mrpc.connect(1337, function(remote){
+    var mm = mrpc.connect(port, function(remote){
         remote.test({ foo: "bar" });
     });
 });

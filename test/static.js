@@ -3,13 +3,14 @@ var test = require("tap").test,
 
 test("static", function(t){
     t.plan(2);
+    var port = Math.floor(Math.random() * 40000 + 10000);
 
     var m = mrpc({
         a: "bar",
         b: "baz"
-    }).listen(1337);
+    }).listen(port);
 
-    var mm = mrpc.connect(1337, function(remote){
+    var mm = mrpc.connect(port, function(remote){
         t.equal(remote.a, "bar");
         t.equal(remote.b, "baz");
 
